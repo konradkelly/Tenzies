@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Die from "./Die"
 import { nanoid } from "nanoid"
 import Confetti from "react-confetti"
@@ -67,7 +67,11 @@ export default function App() {
             <div className="dice-container">
                 {diceElements}
             </div>
-            <button className="roll-dice" onClick={rollDice}>
+            <button
+                ref={buttonRef}
+                className="roll-dice"
+                onClick={rollDice}
+            >
                 {gameWon ? "New Game" : "Roll"}
             </button>
         </main>
